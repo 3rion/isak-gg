@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
+import { SITE_NAME, STAKE_CODE } from "@/config/site";
 
 export default function CompetitionRulesButton() {
   const [open, setOpen] = useState(false);
@@ -43,7 +44,7 @@ export default function CompetitionRulesButton() {
               </p>
               <p className="mb-5 text-sm leading-relaxed text-[#9BA5B4]">
                 Play on Stake.com using the affiliate code{" "}
-                <strong className="text-[#E8EAF0]">EBI</strong>. Once the code
+                <strong className="text-[#E8EAF0]">{STAKE_CODE}</strong>. Once the code
                 is applied, every wager you place will be
                 automatically tracked and counted toward your position on the
                 leaderboard.
@@ -79,7 +80,7 @@ export default function CompetitionRulesButton() {
               </p>
 
               <div className="rounded-lg border-l-2 border-white/20 bg-white/[0.02] px-4 py-3 text-xs leading-relaxed text-zinc-500">
-                Wagers are automatically tracked through Stake’s affiliate system. Any wager abuse will result in you not being eligible for leaderboard payouts. EBI reserves the right to modify the rules and prizes at any time.
+                Wagers are automatically tracked through Stake’s affiliate system. Any wager abuse will result in you not being eligible for leaderboard payouts. {SITE_NAME} reserves the right to modify the rules and prizes at any time.
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { FaDiscord } from "react-icons/fa6";
+import { SOCIAL_LINKS } from "@/config/site";
 
 function BronzeMedal({ className }: { className?: string }) {
   return (
@@ -333,8 +334,6 @@ function DiamondGem5({ className }: { className?: string }) {
   return <DiamondGemNumeralBase className={className} numeral="V" fontSize={6} />;
 }
 
-const DISCORD_URL = "https://discord.gg/ebgaming";
-
 const tiers = [
   { wager: 5000, reward: 10, claimable: true, icon: BronzeMedal, vip: true },
   { wager: 10000, reward: 20, claimable: false, icon: BronzeMedal },
@@ -374,7 +373,7 @@ export default function WagerTiers() {
                   </p>
                   {tier.vip && (
                     <a
-                      href={DISCORD_URL}
+                      href={SOCIAL_LINKS.discord}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 rounded bg-[#5865F2]/20 border border-[#5865F2]/50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#5865F2] transition-colors hover:bg-[#5865F2]/30"
@@ -397,7 +396,7 @@ export default function WagerTiers() {
 
               {tier.claimable ? (
                 <a
-                  href={DISCORD_URL}
+                  href={SOCIAL_LINKS.discord}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-24 rounded-md bg-[#277fe4] px-4 py-2 text-center text-xs font-bold tracking-wide text-white transition-colors hover:opacity-90"

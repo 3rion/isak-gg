@@ -6,18 +6,18 @@ import CountdownTimer from "@/components/CountdownTimer";
 import FloatingHitImage from "@/components/FloatingHitImage";
 import ParticipantsList from "@/components/ParticipantsList";
 import TopThree from "@/components/TopThree";
+import { SITE_NAME, STAKE_CODE, STAKE_URL } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "EBI - Stake Rewards & Leaderboards",
-  description:
-    "Get more from every wager on Stake with code EBI. Join monthly leaderboards, unlock wager-based rewards, claim exclusive bonuses, and maximize your rewards.",
+  title: `${SITE_NAME} - Stake Rewards & Leaderboards`,
+  description: `Get more from every wager on Stake with code ${STAKE_CODE}. Join monthly leaderboards, unlock wager-based rewards, claim exclusive bonuses, and maximize your rewards.`,
 };
 
 export default function Home() {
   return (
     <main className="flex-1 px-6 pt-8 pb-16 text-center">
       <Link
-        href="https://stake.com/?offer=ebi"
+        href={STAKE_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="mx-auto mb-4 block w-fit animate-fade-in-down"
@@ -51,7 +51,7 @@ export default function Home() {
         />
 
         <h1
-          className="animate-fade-in-down text-[56px] font-extrabold text-[#05d8fb] sm:text-[78px]"
+          className="animate-fade-in-down text-[56px] font-extrabold text-[#ff2d2d] sm:text-[78px]"
           style={{ animationDelay: "100ms" }}
         >
           $1,000
@@ -86,7 +86,7 @@ export default function Home() {
         style={{ animationDelay: "300ms" }}
       >
         <Link
-          href="https://stake.com/?offer=ebi"
+          href={STAKE_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="flex w-64 items-center justify-center rounded-md bg-[#277fe4] px-8 py-3 text-sm font-bold tracking-wide text-white transition-opacity hover:opacity-90"

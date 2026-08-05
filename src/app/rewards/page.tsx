@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import WagerTiers from "@/components/WagerTiers";
+import { STAKE_CODE, STAKE_URL } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Wager Rewards",
@@ -7,15 +8,13 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-const STAKE_URL = "https://stake.com/?offer=ebi";
-
 export default function RewardsPage() {
   return (
     <main className="flex-1 px-6 pb-16">
       <h1
         className="animate-fade-in-down pt-16 text-center text-4xl font-bold tracking-wide text-white sm:text-5xl"
       >
-        <span className="text-[#05d8fb]">WAGER</span> REWARDS
+        <span className="text-[#ff2d2d]">WAGER</span> REWARDS
       </h1>
 
       <p
@@ -27,7 +26,7 @@ export default function RewardsPage() {
           href={STAKE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-bold text-[#05d8fb] hover:underline"
+          className="font-bold text-[#ff2d2d] hover:underline"
         >
           Stake
         </a>{" "}
@@ -36,9 +35,9 @@ export default function RewardsPage() {
           href={STAKE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-bold text-[#05d8fb] hover:underline"
+          className="font-bold text-[#ff2d2d] hover:underline"
         >
-          EBI
+          {STAKE_CODE}
         </a>
         , you can receive additional rewards based on your total wager amount.
         The more you wager, the higher your reward will be.

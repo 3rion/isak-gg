@@ -4,19 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaDiscord, FaDice, FaGift, FaTrophy } from "react-icons/fa6";
-
-const STAKE_URL = "https://stake.com/?offer=ebi";
+import { SITE_NAME, SOCIAL_LINKS, STAKE_URL } from "@/config/site";
 
 const navItems = [
   { label: "LEADERBOARD", href: "/", icon: FaTrophy },
   { label: "REWARDS", href: "/rewards", icon: FaGift },
-  {
-    label: "CONTACT",
-    href: "https://discord.gg/ebgaming",
-    icon: FaDiscord,
-    external: true,
-  },
 ];
+
+const contactItem = { label: "CONTACT", href: SOCIAL_LINKS.discord, icon: FaDiscord };
 
 export default function Header() {
   const pathname = usePathname();
@@ -72,11 +67,11 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="text-xl font-bold tracking-wide text-white"
           >
-            EBI
+            {SITE_NAME}
           </Link>
 
           <a
-            href="https://kick.com/ebgaming"
+            href={SOCIAL_LINKS.kick}
             target="_blank"
             rel="noopener noreferrer"
             className={`flex items-center gap-1.5 rounded-md px-2 py-1 text-[10px] font-bold tracking-wide transition-colors ${
@@ -95,13 +90,13 @@ export default function Header() {
         </div>
 
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 min-[850px]:flex">
-          {navItems.slice(0, 2).map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={`relative flex items-center gap-2 py-4 text-sm tracking-wide transition-colors ${
                 isActive(item.href)
-                  ? "font-bold text-white after:absolute after:-bottom-[1px] after:left-0 after:h-[2px] after:w-full after:rounded-t-sm after:bg-[#05d8fb] after:content-['']"
+                  ? "font-bold text-white after:absolute after:-bottom-[1px] after:left-0 after:h-[2px] after:w-full after:rounded-t-sm after:bg-[#ff2d2d] after:content-['']"
                   : "font-semibold text-zinc-500 hover:text-zinc-300"
               }`}
             >
@@ -120,18 +115,15 @@ export default function Header() {
             PLAY STAKE
           </a>
 
-          {navItems.slice(2).map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative flex items-center gap-2 py-4 text-sm font-semibold tracking-wide text-zinc-500 transition-colors hover:text-zinc-300"
-            >
-              <item.icon size={14} />
-              {item.label}
-            </a>
-          ))}
+          <a
+            href={contactItem.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative flex items-center gap-2 py-4 text-sm font-semibold tracking-wide text-zinc-500 transition-colors hover:text-zinc-300"
+          >
+            <contactItem.icon size={14} />
+            {contactItem.label}
+          </a>
         </nav>
       </div>
 
@@ -153,33 +145,30 @@ export default function Header() {
           PLAY STAKE
         </a>
 
-        {navItems.map((item) =>
-          item.external ? (
-            <a
-              key={item.href}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center gap-2 py-3 text-sm font-semibold tracking-wide text-zinc-500"
-            >
-              <item.icon size={14} />
-              {item.label}
-            </a>
-          ) : (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-              className={`flex items-center gap-2 py-3 text-sm tracking-wide ${
-                isActive(item.href) ? "font-bold text-white" : "font-semibold text-zinc-500"
-              }`}
-            >
-              <item.icon size={14} />
-              {item.label}
-            </Link>
-          )
-        )}
+        {navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={() => setMenuOpen(false)}
+            className={`flex items-center gap-2 py-3 text-sm tracking-wide ${
+              isActive(item.href) ? "font-bold text-white" : "font-semibold text-zinc-500"
+            }`}
+          >
+            <item.icon size={14} />
+            {item.label}
+          </Link>
+        ))}
+
+        <a
+          href={contactItem.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setMenuOpen(false)}
+          className="flex items-center gap-2 py-3 text-sm font-semibold tracking-wide text-zinc-500"
+        >
+          <contactItem.icon size={14} />
+          {contactItem.label}
+        </a>
       </nav>
     </header>
   );

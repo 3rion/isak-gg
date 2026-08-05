@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-
-const KICK_SLUG = "ebgaming";
+import { KICK_SLUG } from "@/config/site";
 
 let cachedToken: { value: string; expiresAt: number } | null = null;
 

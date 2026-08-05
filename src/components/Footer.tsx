@@ -6,14 +6,15 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 import { SiKick } from "react-icons/si";
+import { SITE_NAME, SOCIAL_LINKS } from "@/config/site";
 
 const socials = [
-  { label: "Kick", href: "https://kick.com/ebgaming", icon: SiKick },
-  { label: "Twitter", href: "https://x.com/eriong_", icon: FaXTwitter },
-  { label: "Discord", href: "https://discord.gg/ebgaming", icon: FaDiscord },
-  { label: "YouTube", href: "https://youtube.com/ebgaming", icon: FaYoutube },
-  { label: "Instagram", href: "https://instagram.com/ebgamingx", icon: FaInstagram },
-  { label: "TikTok", href: "https://tiktok.com/@ebgaming", icon: FaTiktok },
+  { label: "Kick", href: SOCIAL_LINKS.kick, icon: SiKick },
+  { label: "Twitter", href: SOCIAL_LINKS.twitter, icon: FaXTwitter },
+  { label: "Discord", href: SOCIAL_LINKS.discord, icon: FaDiscord },
+  { label: "YouTube", href: SOCIAL_LINKS.youtube, icon: FaYoutube },
+  { label: "Instagram", href: SOCIAL_LINKS.instagram, icon: FaInstagram },
+  { label: "TikTok", href: SOCIAL_LINKS.tiktok, icon: FaTiktok },
 ];
 
 export default function Footer() {
@@ -44,7 +45,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-6 text-center text-xs text-zinc-600">
-          © 2026 EBI.GG All Rights Reserved
+          © 2026 {SITE_NAME}.GG All Rights Reserved
         </p>
       </div>
     </footer>
