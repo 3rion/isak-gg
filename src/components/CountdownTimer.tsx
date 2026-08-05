@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-function getNextResetDate() {
+function getDefaultResetDate() {
   const now = new Date();
   return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1, 0, 0, 0));
 }
 
-function getTimeLeft() {
-  const diff = Math.max(0, getNextResetDate().getTime() - Date.now());
+function getTimeLeft(endDate: Date) {
+  const diff = Math.max(0, endDate.getTime() - Date.now());
 
   const totalSeconds = Math.floor(diff / 1000);
   const days = Math.floor(totalSeconds / 86400);
@@ -23,14 +23,19 @@ function pad(value: number) {
   return value.toString().padStart(2, "0");
 }
 
-export default function CountdownTimer() {
+interface CountdownTimerProps {
+  endDate?: string | null;
+}
+
+export default function CountdownTimer({ endDate }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState<ReturnType<typeof getTimeLeft> | null>(null);
 
   useEffect(() => {
-    setTimeLeft(getTimeLeft());
-    const interval = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+    const resetDate = endDate ? new Date(endDate) : getDefaultResetDate();
+    setTimeLeft(getTimeLeft(resetDate));
+    const interval = setInterval(() => setTimeLeft(getTimeLeft(resetDate)), 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [endDate]);
 
   const units = [
     { label: "DAYS", value: timeLeft ? timeLeft.days : 0 },

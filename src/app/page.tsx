@@ -7,13 +7,16 @@ import FloatingHitImage from "@/components/FloatingHitImage";
 import ParticipantsList from "@/components/ParticipantsList";
 import TopThree from "@/components/TopThree";
 import { SITE_NAME, STAKE_CODE, STAKE_URL } from "@/config/site";
+import { getCurrentPeriodEnd } from "@/lib/leaderboard";
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} - Stake Rewards & Leaderboards`,
   description: `Get more from every wager on Stake with code ${STAKE_CODE}. Join monthly leaderboards, unlock wager-based rewards, claim exclusive bonuses, and maximize your rewards.`,
 };
 
-export default function Home() {
+export default async function Home() {
+  const periodEnd = await getCurrentPeriodEnd();
+
   return (
     <main className="flex-1 px-6 pt-8 pb-16 text-center">
       <Link
@@ -101,7 +104,7 @@ export default function Home() {
       </div>
 
       <div className="animate-fade-in-up" style={{ animationDelay: "500ms" }}>
-        <CountdownTimer />
+        <CountdownTimer endDate={periodEnd} />
       </div>
 
       <div className="animate-fade-in-up" style={{ animationDelay: "600ms" }}>
