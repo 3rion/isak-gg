@@ -1,4 +1,5 @@
 const CSV_URL = process.env.LEADERBOARD_CSV_URL;
+const PREVIOUS_CSV_URL = process.env.LEADERBOARD_PREVIOUS_CSV_URL;
 
 export interface LeaderboardEntry {
   rank: number;
@@ -20,13 +21,8 @@ function emptySlots(): LeaderboardEntry[] {
   }));
 }
 
-async function fetchAllEntries(): Promise<RawEntry[]> {
-  if (!CSV_URL) {
-    console.error("LEADERBOARD_CSV_URL is not set");
-    return [];
-  }
-
-  const res = await fetch(CSV_URL, { next: { revalidate: 60 } });
+async function fetchEntries(url: string): Promise<RawEntry[]> {
+  const res = await fetch(url, { next: { revalidate: 60 } });
   if (!res.ok) return [];
 
   const lines = (await res.text()).trim().split("\n").slice(1);
@@ -43,6 +39,20 @@ async function fetchAllEntries(): Promise<RawEntry[]> {
       };
     })
     .filter((entry) => entry.username && Number.isFinite(entry.rank) && entry.startDateUtc);
+}
+
+// Trevor.io generates a fresh CSV export per race period rather than one
+// export covering all periods, so the current and previous periods are
+// fetched from separate URLs and merged.
+async function fetchAllEntries(): Promise<RawEntry[]> {
+  if (!CSV_URL) {
+    console.error("LEADERBOARD_CSV_URL is not set");
+    return [];
+  }
+
+  const urls = [CSV_URL, PREVIOUS_CSV_URL].filter((url): url is string => Boolean(url));
+  const results = await Promise.all(urls.map(fetchEntries));
+  return results.flat();
 }
 
 // Race periods aren't necessarily aligned to calendar months (e.g. a race can
