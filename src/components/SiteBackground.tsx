@@ -18,7 +18,7 @@ export default function SiteBackground() {
         className="absolute -top-40 left-1/2 h-[750px] w-[1800px] -translate-x-1/2"
         style={{
           backgroundImage:
-            "radial-gradient(rgba(255,45,45,0.18) 0%, rgba(255,45,45,0.08) 30%, rgba(255,45,45,0.03) 50%, transparent 70%)",
+            "radial-gradient(rgba(34,224,101,0.18) 0%, rgba(34,224,101,0.08) 30%, rgba(34,224,101,0.03) 50%, transparent 70%)",
         }}
       />
     </div>

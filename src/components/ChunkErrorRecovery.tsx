@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const RELOAD_FLAG = "gafi-chunk-reload-at";
+const RELOAD_FLAG = "isak-chunk-reload-at";
 const RELOAD_COOLDOWN_MS = 10_000;
 
 function reloadOnce() {

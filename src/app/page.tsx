@@ -36,7 +36,7 @@ export default async function Home() {
       </Link>
       <div className="relative mx-auto flex w-fit items-center justify-center">
         <FloatingHitImage
-          src="/uploads/vs.png"
+          src="/uploads/duck.png"
           alt=""
           width={200}
           height={200}
@@ -54,15 +54,15 @@ export default async function Home() {
         />
 
         <h1
-          className="animate-fade-in-down text-[56px] font-extrabold text-[#ff2d2d] sm:text-[78px]"
+          className="animate-fade-in-down text-[56px] font-extrabold text-[#22e065] sm:text-[78px]"
           style={{ animationDelay: "100ms" }}
         >
-          $1,000
+          $2,000
         </h1>
 
         <FloatingHitImage
-          src="/uploads/1000x.png"
-          alt="1000x"
+          src="/uploads/no-limit-wild.png"
+          alt="No Limit Wild"
           width={300}
           height={260}
           direction="right"

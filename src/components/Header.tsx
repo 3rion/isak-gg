@@ -96,7 +96,7 @@ export default function Header() {
               href={item.href}
               className={`relative flex items-center gap-2 py-4 text-sm tracking-wide transition-colors ${
                 isActive(item.href)
-                  ? "font-bold text-white after:absolute after:-bottom-[1px] after:left-0 after:h-[2px] after:w-full after:rounded-t-sm after:bg-[#ff2d2d] after:content-['']"
+                  ? "font-bold text-white after:absolute after:-bottom-[1px] after:left-0 after:h-[2px] after:w-full after:rounded-t-sm after:bg-[#22e065] after:content-['']"
                   : "font-semibold text-zinc-500 hover:text-zinc-300"
               }`}
             >

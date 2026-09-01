@@ -10,9 +10,9 @@ const rankConfig: Record<
   number,
   { prize: string; color: string; order: string; elevate: string }
 > = {
-  1: { prize: "$500", color: "#e3b737", order: "sm:order-2", elevate: "sm:-mt-6" },
-  2: { prize: "$300", color: "#a6aabf", order: "sm:order-1", elevate: "" },
-  3: { prize: "$200", color: "#c8822c", order: "sm:order-3", elevate: "" },
+  1: { prize: "$800", color: "#e3b737", order: "sm:order-2", elevate: "sm:-mt-6" },
+  2: { prize: "$500", color: "#a6aabf", order: "sm:order-1", elevate: "" },
+  3: { prize: "$300", color: "#c8822c", order: "sm:order-3", elevate: "" },
 };
 
 export default async function TopThree() {

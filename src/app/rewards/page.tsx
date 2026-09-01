@@ -14,7 +14,7 @@ export default function RewardsPage() {
       <h1
         className="animate-fade-in-down pt-16 text-center text-4xl font-bold tracking-wide text-white sm:text-5xl"
       >
-        <span className="text-[#ff2d2d]">WAGER</span> REWARDS
+        <span className="text-[#22e065]">WAGER</span> REWARDS
       </h1>
 
       <p
@@ -26,7 +26,7 @@ export default function RewardsPage() {
           href={STAKE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-bold text-[#ff2d2d] hover:underline"
+          className="font-bold text-[#22e065] hover:underline"
         >
           Stake
         </a>{" "}
@@ -35,7 +35,7 @@ export default function RewardsPage() {
           href={STAKE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-bold text-[#ff2d2d] hover:underline"
+          className="font-bold text-[#22e065] hover:underline"
         >
           {STAKE_CODE}
         </a>
