@@ -14,7 +14,7 @@ export default async function ParticipantsList() {
     getPreviousLeaderboardData(),
   ]);
   const rest = data.filter((entry) => entry.rank >= 4 && entry.rank <= 20);
-  const rankPrizes: Record<number, string> = { 4: "$200", 5: "$200" };
+  const rankPrizes: Record<number, string> = { 4: "$300", 5: "$200" };
 
   return (
     <div className="mx-auto mt-12 w-full max-w-5xl">
