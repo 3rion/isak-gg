@@ -57,7 +57,7 @@ export default async function Home() {
           className="animate-fade-in-down text-[56px] font-extrabold text-[#22e065] sm:text-[78px]"
           style={{ animationDelay: "100ms" }}
         >
-          $2,500
+          PAUSED
         </h1>
 
         <FloatingHitImage

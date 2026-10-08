@@ -8,11 +8,11 @@ import {
 
 const rankConfig: Record<
   number,
-  { prize: string; color: string; order: string; elevate: string }
+  { color: string; order: string; elevate: string }
 > = {
-  1: { prize: "$1,000", color: "#e3b737", order: "sm:order-2", elevate: "sm:-mt-6" },
-  2: { prize: "$600", color: "#a6aabf", order: "sm:order-1", elevate: "" },
-  3: { prize: "$400", color: "#c8822c", order: "sm:order-3", elevate: "" },
+  1: { color: "#e3b737", order: "sm:order-2", elevate: "sm:-mt-6" },
+  2: { color: "#a6aabf", order: "sm:order-1", elevate: "" },
+  3: { color: "#c8822c", order: "sm:order-3", elevate: "" },
 };
 
 export default async function TopThree() {
@@ -57,13 +57,6 @@ export default async function TopThree() {
               <p className="mb-5 text-xl font-bold text-white">
                 {isPlaceholder(entry) ? "—" : maskUsername(entry.username)}
               </p>
-
-              <div
-                className="mb-5 w-full rounded-md py-3.5 text-center text-2xl font-extrabold text-black"
-                style={{ backgroundColor: config.color }}
-              >
-                {config.prize}
-              </div>
 
               <p className="text-xs uppercase tracking-wide text-zinc-500">
                 Wagered

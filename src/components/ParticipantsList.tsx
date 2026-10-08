@@ -14,7 +14,6 @@ export default async function ParticipantsList() {
     getPreviousLeaderboardData(),
   ]);
   const rest = data.filter((entry) => entry.rank >= 4 && entry.rank <= 20);
-  const rankPrizes: Record<number, string> = { 4: "$300", 5: "$200" };
 
   return (
     <div className="mx-auto mt-12 w-full max-w-5xl">
@@ -38,16 +37,9 @@ export default async function ParticipantsList() {
               </h1>
             </div>
 
-            <div className="flex items-center gap-3">
-              {rankPrizes[entry.rank] && (
-                <span className="rounded-md bg-[#22e065] px-2.5 py-1 text-xs font-extrabold text-black">
-                  {rankPrizes[entry.rank]}
-                </span>
-              )}
-              <h3 className="text-sm font-bold text-white sm:text-base">
-                {isPlaceholder(entry) ? "—" : formatCurrency(entry.wagered)}
-              </h3>
-            </div>
+            <h3 className="text-sm font-bold text-white sm:text-base">
+              {isPlaceholder(entry) ? "—" : formatCurrency(entry.wagered)}
+            </h3>
           </div>
         ))}
       </div>

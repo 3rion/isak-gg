@@ -32,6 +32,7 @@ export default function CountdownTimer({ endDate }: CountdownTimerProps) {
 
   useEffect(() => {
     const resetDate = endDate ? new Date(endDate) : getDefaultResetDate();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only initial value avoids hydration mismatch
     setTimeLeft(getTimeLeft(resetDate));
     const interval = setInterval(() => setTimeLeft(getTimeLeft(resetDate)), 1000);
     return () => clearInterval(interval);
